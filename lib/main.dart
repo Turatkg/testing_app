@@ -62,6 +62,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
                 Expanded(
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 5),
+                    // ignore: deprecated_member_use
                     child: RaisedButton(
                       padding: EdgeInsets.all(10),
                       textColor: Colors.white,
@@ -85,6 +86,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
                 Expanded(
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 5),
+                    // ignore: deprecated_member_use
                     child: RaisedButton(
                       padding: EdgeInsets.all(10),
                       textColor: Colors.white,

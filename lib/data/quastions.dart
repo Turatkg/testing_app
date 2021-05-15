@@ -13,7 +13,7 @@ List<Suroo> surooToptomu = [
       surooTexti: '2. Дүйнөдөгү тооктордун саны адам санынан көп',
       jooptoru: true),
   Suroo(
-      surooTexti: '3. Көпөлөктөрдүн бардык бир эле күн жашайт?',
+      surooTexti: '3. Көпөлөктөрдүн бардык түрү бир эле күн жашайт?',
       jooptoru: false),
   Suroo(surooTexti: '4. Жер шары түз', jooptoru: false),
   Suroo(surooTexti: '5. Грек жаңгагынын мекени Арстанбап', jooptoru: true),
