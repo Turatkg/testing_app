@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testing_app/data/quastions.dart';
 import 'package:testing_app/ui/consts.dart';
 
 void main() => runApp(BilgiTesti());
@@ -25,7 +26,6 @@ class SoruSayfasi extends StatefulWidget {
 
 class _SoruSayfasiState extends State<SoruSayfasi> {
   List<Widget> tandalgandar = [];
-  // List<String> suroolor = [];
 
   int surooIndex = 0;
 
@@ -41,7 +41,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                suroolor[surooIndex],
+                surooToptomu[surooIndex].surooTexti,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 20.0,
@@ -72,7 +72,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
                       ),
                       onPressed: () {
                         setState(() {
-                          jooptor[surooIndex] == false
+                          surooToptomu[surooIndex].jooptoru == false
                               ? tandalgandar.add(tuuraIcon)
                               : tandalgandar.add(kataIcon);
 
@@ -95,7 +95,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
                       ),
                       onPressed: () {
                         setState(() {
-                          jooptor[surooIndex] == true
+                          surooToptomu[surooIndex].jooptoru == true
                               ? tandalgandar.add(tuuraIcon)
                               : tandalgandar.add(kataIcon);
                           surooIndex++;
