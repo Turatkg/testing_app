@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:testing_app/data/quastions.dart';
 import 'package:testing_app/ui/consts.dart';
+import 'data/test_toptomu.dart';
 
 void main() => runApp(BilgiTesti());
 
@@ -27,7 +27,47 @@ class SoruSayfasi extends StatefulWidget {
 class _SoruSayfasiState extends State<SoruSayfasi> {
   List<Widget> tandalgandar = [];
 
-  int surooIndex = 0;
+  TestToptomu test_1 = TestToptomu();
+
+  void buttonFunksiya(bool tandalganButton) {
+    if (test_1.testButtubu() == true) {
+      //test_1.testButtubu() == true bolgo anda
+      //alertDialog korunot
+
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          //return dialog object
+          return AlertDialog(
+            title: new Text('Test buttu'),
+            // content: new Text('Suroolor buttu, testty jyiyntuktaibyz'),
+            actions: <Widget>[
+              // ignore: deprecated_member_use
+              new FlatButton(
+                child: new Text('Basynan basta'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  setState(() {
+                    //bul setSate betti janydan bastayt
+                    test_1.testiJanyla();
+                    tandalgandar = [];
+                  });
+                },
+              )
+            ],
+          );
+        },
+      );
+    } else {
+      setState(() {
+        test_1.getjooptor() == tandalganButton
+            ? tandalgandar.add(tuuraIcon)
+            : tandalgandar.add(kataIcon);
+
+        test_1.kiyinkiSuroo();
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +81,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                surooToptomu[surooIndex].surooTexti,
+                test_1.getsurooTexti(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 20.0,
@@ -72,13 +112,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
                         size: 30.0,
                       ),
                       onPressed: () {
-                        setState(() {
-                          surooToptomu[surooIndex].jooptoru == false
-                              ? tandalgandar.add(tuuraIcon)
-                              : tandalgandar.add(kataIcon);
-
-                          surooIndex++;
-                        });
+                        buttonFunksiya(false);
                       },
                     ),
                   ),
@@ -96,12 +130,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
                         size: 30.0,
                       ),
                       onPressed: () {
-                        setState(() {
-                          surooToptomu[surooIndex].jooptoru == true
-                              ? tandalgandar.add(tuuraIcon)
-                              : tandalgandar.add(kataIcon);
-                          surooIndex++;
-                        });
+                        buttonFunksiya(true);
                       },
                     ),
                   ),
